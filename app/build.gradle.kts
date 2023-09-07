@@ -77,4 +77,10 @@ dependencies {
     implementation("com.arkivanov.mvikotlin:mvikotlin-logging:$mvikotlinVersion")
     implementation("com.arkivanov.mvikotlin:mvikotlin-main:$mvikotlinVersion")
 
+    val ktorVersion = "2.3.5"
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-android:$ktorVersion")
+    implementation("io.ktor:ktor-client-json-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-client-gson:$ktorVersion")
+
 }
