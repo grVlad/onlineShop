@@ -7,7 +7,7 @@ import com.example.onlineshop.presentation.model.UiMainState
 internal class MainUiStateMapper : Mapper<MainStore.State, UiMainState> {
 
     override fun map(item: MainStore.State) = UiMainState(
-        userInfo = item.details,
+        allProductList = item.allProductList,
         loading = item.isLoading,
         error = item.isError,
     )

@@ -33,7 +33,7 @@ internal val mainModule = module {
         MainUiStateMapper()
     }
 
-    factory<MainStore>() {
+    factory<MainStore> {
         MainStoreFactory(
             storeFactory = get(),
             repository = get(),
@@ -49,11 +49,11 @@ internal val mainModule = module {
         LoggingStoreFactory(DefaultStoreFactory(), logger = logger)
     }
 
-    factory<Repository>() {
+    factory<Repository> {
         RepositoryImpl(get())
     }
 
-    factory<Api>() {
+    factory<Api> {
         ApiImpl(get())
     }
 

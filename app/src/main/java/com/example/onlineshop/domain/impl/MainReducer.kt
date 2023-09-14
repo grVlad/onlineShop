@@ -10,8 +10,8 @@ class MainReducer : Reducer<MainStore.State, MainStoreFactory.Message> {
             isLoading = false
         )
 
-        is MainStoreFactory.Message.SetUserInfo -> copy(
-            details = msg.userInfo,
+        is MainStoreFactory.Message.SetAllProductList -> copy(
+            allProductList = msg.allProductList,
             isLoading = false
         )
 

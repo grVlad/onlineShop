@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.onlineshop.R
+import com.example.onlineshop.domain.api.model.AllProductList
 import com.example.onlineshop.presentation.model.UiMainState
 import com.example.onlineshop.ui.theme.buttonPrimaryActiveColor
 import com.example.onlineshop.ui.theme.buttonPrimaryDisabledColor
@@ -47,7 +48,7 @@ fun MainScreen(
                 .padding(paddingValues)
                 .fillMaxSize()
         ) {
-            val userInfo = state.userInfo
+            val allProductList = state.allProductList
 
             when {
                 state.loading -> CircularProgressIndicator(
@@ -64,9 +65,9 @@ fun MainScreen(
                     )
                 }
 
-                userInfo != null -> UserInfoDetails(
+                allProductList != null -> UserInfoDetails(
                     modifier = Modifier.align(Alignment.Center),
-                    userInfo = userInfo,
+                    allProductList = allProductList,
                     onLoadClick = onLoadClick
                 )
             }
@@ -123,18 +124,18 @@ private fun MainButton(
 
 @Composable
 private fun UserInfoDetails(
-    userInfo: UserInfo,
+    allProductList: AllProductList,
     onLoadClick: () -> Unit,
     modifier: Modifier
 ) {
-    Column(
-        modifier = modifier,
-    ) {
-        Text(text = "Имя")
-        Text(text = userInfo.name)
-        Text(text = "Фамилия")
-        Text(text = userInfo.surname)
-        Spacer(modifier = Modifier.height(4.dp))
-        MainButton(titleResId = R.string.reload, onClick = onLoadClick, modifier = Modifier.padding(top = 4.dp))
-    }
+//    Column(
+//        modifier = modifier,
+//    ) {
+//        Text(text = "Имя")
+//        Text(text = allProductList.name)
+//        Text(text = "Фамилия")
+//        Text(text = allProductList.surname)
+//        Spacer(modifier = Modifier.height(4.dp))
+//        MainButton(titleResId = R.string.reload, onClick = onLoadClick, modifier = Modifier.padding(top = 4.dp))
+//    }
 }

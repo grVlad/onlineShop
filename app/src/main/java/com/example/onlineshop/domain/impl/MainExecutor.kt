@@ -40,8 +40,8 @@ class MainExecutor(
     private suspend fun loadUserInfo() {
         dispatch(MainStoreFactory.Message.SetLoading)
 
-        when (val response = repository.getUserInfo()) {
-            is Response.Success -> dispatch(MainStoreFactory.Message.SetUserInfo(response.data))
+        when (val response = repository.getAllProducts()) {
+            is Response.Success -> dispatch(MainStoreFactory.Message.SetAllProductList(response.data))
             is Response.Failed -> dispatch(MainStoreFactory.Message.SetError)
         }
     }
