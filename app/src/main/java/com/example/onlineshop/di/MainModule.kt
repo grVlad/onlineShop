@@ -10,6 +10,9 @@ import com.example.onlineshop.data.RepositoryImpl
 import com.example.onlineshop.domain.api.MainStore
 import com.example.onlineshop.domain.impl.MainStoreFactory
 import com.example.onlineshop.domain.impl.data.Repository
+import com.example.onlineshop.network.ClientProvider
+import com.example.onlineshop.network.api.Api
+import com.example.onlineshop.network.impl.ApiImpl
 import com.example.onlineshop.presentation.MainViewModel
 import com.example.onlineshop.presentation.mapper.MainUiStateMapper
 import com.example.onlineshop.presentation.model.UiMainState
@@ -47,6 +50,14 @@ internal val mainModule = module {
     }
 
     factory<Repository>() {
-        RepositoryImpl()
+        RepositoryImpl(get())
+    }
+
+    factory<Api>() {
+        ApiImpl(get())
+    }
+
+    single {
+        ClientProvider()
     }
 }

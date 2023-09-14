@@ -3,7 +3,6 @@ package com.example.onlineshop.domain.impl
 import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.example.onlineshop.domain.api.MainStore
-import com.example.onlineshop.domain.api.model.UserInfo
 import com.example.onlineshop.domain.impl.data.Repository
 
 class MainStoreFactory(

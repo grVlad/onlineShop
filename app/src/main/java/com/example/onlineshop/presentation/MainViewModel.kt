@@ -1,21 +1,24 @@
 package com.example.onlineshop.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.arkivanov.mvikotlin.core.binder.Binder
 import com.arkivanov.mvikotlin.extensions.coroutines.bind
 import com.arkivanov.mvikotlin.extensions.coroutines.states
 import com.example.onlineshop.common.Mapper
 import com.example.onlineshop.domain.api.MainStore
+import com.example.onlineshop.network.api.Api
 import com.example.onlineshop.presentation.model.UiMainState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 class MainViewModel constructor(
     private val store: MainStore,
-    private val stateMapper: Mapper<MainStore.State, UiMainState>
+    private val stateMapper: Mapper<MainStore.State, UiMainState>,
 ) : ViewModel() {
 
     val state: StateFlow<UiMainState>
