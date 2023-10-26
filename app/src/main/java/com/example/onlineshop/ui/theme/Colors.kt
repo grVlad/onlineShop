@@ -15,8 +15,17 @@ val textPrimaryColor: Color
 val textSecondaryColor: Color
     @Composable get() = TextSecondary
 
+val buttonContentColor: Color
+    @Composable get() = ButtonContent
+
 val buttonPrimaryActiveColor: Color
-    @Composable get() = ButtonPrimaryActive
+    @Composable get() = Primary
 
 val buttonPrimaryDisabledColor: Color
     @Composable get() = ButtonPrimaryDisabled
+
+val progressColor: Color
+    @Composable get() = Progress
+
+val cardContainerColor: Color
+    @Composable get() = CardContainer

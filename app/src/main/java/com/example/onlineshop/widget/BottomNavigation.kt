@@ -48,7 +48,10 @@ fun NavGraph(
     state: UiMainState,
     onLoadClick: () -> Unit
 ) {
-    NavHost(navController = navHostController, startDestination = BottomNavigationScreens.ProductList.route) {
+    NavHost(
+        navController = navHostController,
+        startDestination = BottomNavigationScreens.ProductList.route
+    ) {
         composable(BottomNavigationScreens.ProductList.route) {
             ProductListScreen(
                 state = state,
@@ -95,7 +98,9 @@ fun BottomNavigation(
                 },
                 selected = currentRoute == screen.route,
                 onClick = {
-                    navController.navigate(screen.route)
+                    if (currentRoute != screen.route) {
+                        navController.navigate(screen.route)
+                    }
                 }
             )
         }

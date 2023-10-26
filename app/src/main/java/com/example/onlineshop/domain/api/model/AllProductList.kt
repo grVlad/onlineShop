@@ -1,10 +1,6 @@
 package com.example.onlineshop.domain.api.model
 
-data class AllProductList(
-    val items: List<AllProductsItem>
-)
-
-data class AllProductsItem(
+data class Product(
     val category: String,
     val description: String,
     val id: Int,

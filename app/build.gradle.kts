@@ -89,4 +89,5 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
 
+    implementation("io.coil-kt:coil-compose:2.5.0")
 }

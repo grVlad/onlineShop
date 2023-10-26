@@ -3,7 +3,7 @@ package com.example.onlineshop.domain.impl
 import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.example.onlineshop.domain.api.MainStore
-import com.example.onlineshop.domain.api.model.AllProductList
+import com.example.onlineshop.domain.api.model.Product
 import com.example.onlineshop.domain.impl.data.Repository
 
 class MainStoreFactory(
@@ -27,7 +27,7 @@ class MainStoreFactory(
 
     sealed interface Message {
         object SetLoading : Message
-        data class SetAllProductList(val allProductList: AllProductList) : Message
+        data class SetAllProductList(val allProductList: List<Product>) : Message
         object SetError : Message
     }
 }

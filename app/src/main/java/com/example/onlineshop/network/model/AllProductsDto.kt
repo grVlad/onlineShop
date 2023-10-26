@@ -1,16 +1,15 @@
 package com.example.onlineshop.network.model
 
-import com.example.onlineshop.domain.api.model.AllProductList
-import com.example.onlineshop.domain.api.model.AllProductsItem
+import com.example.onlineshop.domain.api.model.Product
 import com.example.onlineshop.domain.api.model.Rating
 import kotlinx.serialization.Serializable
 
 data class AllProductsDto(
     val items: List<AllProductsDtoItem>
 ) {
-    fun toDomain(): AllProductList = AllProductList(
+    fun toDomain(): List<Product> =
         items.map { productDto ->
-            AllProductsItem(
+            Product(
                 id = productDto.id,
                 title = productDto.title,
                 category = productDto.category,
@@ -23,7 +22,6 @@ data class AllProductsDto(
                 )
             )
         }
-    )
 }
 
 @Serializable
