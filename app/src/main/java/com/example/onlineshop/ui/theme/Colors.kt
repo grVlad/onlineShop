@@ -29,3 +29,6 @@ val progressColor: Color
 
 val cardContainerColor: Color
     @Composable get() = CardContainer
+
+val priceMarkerColor: Color
+    @Composable get() = PriceMarker

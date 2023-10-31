@@ -30,11 +30,12 @@ abstract class BaseExecutor<in Intent : Any, in Action : Any, in State : Any, Me
 
 class MainExecutor(
     private val repository: Repository
-) : BaseExecutor<MainStore.Intent, Nothing, MainStore.State, MainStoreFactory.Message, Nothing>() {
+) : BaseExecutor<MainStore.Intent, Nothing, MainStore.State, MainStoreFactory.Message, MainStore.Label>() {
 
     override suspend fun suspendExecuteIntent(intent: MainStore.Intent, getState: () -> MainStore.State) =
         when (intent) {
             is MainStore.Intent.Load -> loadUserInfo()
+            is MainStore.Intent.Help -> help()
         }
 
     private suspend fun loadUserInfo() {
@@ -44,5 +45,9 @@ class MainExecutor(
             is Response.Success -> dispatch(MainStoreFactory.Message.SetAllProductList(response.data))
             is Response.Failed -> dispatch(MainStoreFactory.Message.SetError)
         }
+    }
+
+    private fun help() {
+        publish(MainStore.Label.Help)
     }
 }

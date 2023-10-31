@@ -24,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,6 +35,7 @@ import com.example.onlineshop.domain.api.model.Product
 import com.example.onlineshop.domain.api.model.Rating
 import com.example.onlineshop.presentation.model.UiMainState
 import com.example.onlineshop.ui.theme.cardContainerColor
+import com.example.onlineshop.ui.theme.priceMarkerColor
 import com.example.onlineshop.ui.theme.progressColor
 import com.example.onlineshop.widget.ErrorPlaceholder
 import com.example.onlineshop.widget.SimpleButton
@@ -138,8 +140,11 @@ private fun ProductItem(
                     Image(
                         modifier = Modifier
                             .align(Alignment.CenterVertically)
+                            .padding(end = 2.dp)
                             .size(16.dp),
-                        imageVector = Icons.Filled.Sell, contentDescription = null
+                        imageVector = Icons.Filled.Sell,
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(priceMarkerColor)
                     )
                     Text(
                         text = item.price.toString(),

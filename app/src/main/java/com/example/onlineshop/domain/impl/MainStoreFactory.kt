@@ -13,7 +13,7 @@ class MainStoreFactory(
 
     fun create(): MainStore = object :
         MainStore,
-        Store<MainStore.Intent, MainStore.State, Nothing> by storeFactory.create(
+        Store<MainStore.Intent, MainStore.State, MainStore.Label> by storeFactory.create(
             name = MainStore::class.simpleName,
             initialState = MainStore.State(),
             bootstrapper = null,

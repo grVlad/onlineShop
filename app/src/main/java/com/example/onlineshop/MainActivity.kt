@@ -1,6 +1,7 @@
 package com.example.onlineshop
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
@@ -20,8 +21,13 @@ class MainActivity : ComponentActivity() {
 
             MainScreen(
                 state = state,
-                onLoadClick = viewModel::load
+                onLoadClick = viewModel::load,
+                onHelpClick = viewModel::help,
             )
+        }
+
+        viewModel.message.observe(this) { message ->
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
     }
 }
