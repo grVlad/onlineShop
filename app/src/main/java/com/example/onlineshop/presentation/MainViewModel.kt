@@ -21,8 +21,8 @@ class MainViewModel constructor(
     private val stateMapper: Mapper<MainStore.State, UiMainState>,
 ) : ViewModel() {
 
-    private val _message = LiveEvent<String>()
-    val message: LiveData<String> = _message
+    private val _label = LiveEvent<String>()
+    val label: LiveData<String> = _label
 
     val state: StateFlow<UiMainState>
         get() = mutableState.asStateFlow()
@@ -59,7 +59,7 @@ class MainViewModel constructor(
 
     private fun acceptLabel(label: MainStore.Label) {
         when (label) {
-            is MainStore.Label.Help -> _message.value = "Функция в разработке"
+            is MainStore.Label.Help -> _label.value = "Функция в разработке"
         }
     }
 }

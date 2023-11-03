@@ -26,8 +26,8 @@ class MainActivity : ComponentActivity() {
             )
         }
 
-        viewModel.message.observe(this) { message ->
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        viewModel.label.observe(this) { text ->
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
         }
     }
 }

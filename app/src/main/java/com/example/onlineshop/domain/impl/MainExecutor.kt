@@ -18,14 +18,7 @@ abstract class BaseExecutor<in Intent : Any, in Action : Any, in State : Any, Me
         }
     }
 
-    override fun executeAction(action: Action, getState: () -> State) {
-        scope.launch {
-            suspendExecuteAction(action, getState)
-        }
-    }
-
     open suspend fun suspendExecuteIntent(intent: Intent, getState: () -> State) {}
-    open suspend fun suspendExecuteAction(action: Action, getState: () -> State) {}
 }
 
 class MainExecutor(
